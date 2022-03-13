@@ -1,7 +1,15 @@
-// va a buscar un archivo JS no hace falta poner el '.js'
-import {saludar} from './assets/js/componentes';
 import './assets/css/styles.css';
 
-const nombre = 'Eduardo';
+import { crearTodoHtml } from './assets/js/componentes';
+import { Todo, TodoList } from './classes';
 
-saludar (nombre);
+export const todoList = new TodoList();
+
+todoList.todos.forEach( todo => {
+    crearTodoHtml( todo );
+});
+
+//la linea anterior también se puede poner así ya que solo tiene un argumento
+// todoList.todos.forEach( crearTodoHtml );
+
+console.log( todoList );
